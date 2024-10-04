@@ -28,6 +28,8 @@ Route::group(['prefix' => 'user'], function () {
     Route::post('/list', [UserController::class, 'list']); // menampilkan data user dalam bentuk json untuk datatables
     Route::get('/create', [UserController::class, 'create']); // menampilkan halaman form tambah user
     Route::post('/', [UserController::class, 'store']); // menyimpan data user baru
+    Route::get('/create_ajax', [UserController::class, 'create_ajax']); // menampilkan halaman form tambah user ajax
+    Route::post('/ajax', [UserController::class, 'store_ajax']); // menyimpan data user baru ajax
     Route::get('/{id}', [UserController::class, 'show']); // menampilkan detail user
     Route::get('/{id}/edit', [UserController::class, 'edit']); // menampilkan halaman form edit user
     Route::put('/{id}', [UserController::class, 'update']); // menyimpan perubahan data user
@@ -64,39 +66,6 @@ Route::group(['prefix' => 'barang/'], function() {
     Route::get('/{id}/edit', [BarangController::class, 'edit']);
     Route::put('/{id}', [BarangController::class, 'update']);
     Route::delete('/{id}', [BarangController::class, 'destroy']);
-});
-
-Route::group(['prefix' => 'stok/'], function() {
-    Route::get('/', [StokController::class, 'index']);
-    Route::post('/list', [StokController::class, 'list']);
-    Route::get('/create', [StokController::class, 'create']);
-    Route::post('/', [StokController::class, 'store']);
-    Route::get('/{id}', [StokController::class, 'show']);
-    Route::get('/{id}/edit', [StokController::class, 'edit']);
-    Route::put('/{id}', [StokController::class, 'update']);
-    Route::delete('/{id}', [StokController::class, 'destroy']);
-});
-
-Route::group(['prefix' => 'penjualan/'], function() {
-    Route::get('/', [PenjualanController::class, 'index']);
-    Route::post('/list', [PenjualanController::class, 'list']);
-    Route::get('/create', [PenjualanController::class, 'create']);
-    Route::post('/', [PenjualanController::class, 'store']);
-    Route::get('/{id}', [PenjualanController::class, 'show']);
-    Route::get('/{id}/edit', [PenjualanController::class, 'edit']);
-    Route::put('/{id}', [PenjualanController::class, 'update']);
-    Route::delete('/{id}', [PenjualanController::class, 'destroy']);
-});
-
-Route::group(['prefix' => 'penjualan_detail/'], function() {
-    Route::get('/', [penjualan_detailController::class, 'index']);
-    Route::post('/list', [penjualan_detailController::class, 'list']);
-    Route::get('/create', [penjualan_detailController::class, 'create']);
-    Route::post('/', [penjualan_detailController::class, 'store']);
-    Route::get('/{id}', [penjualan_detailController::class, 'show']);
-    Route::get('/{id}/edit', [penjualan_detailController::class, 'edit']);
-    Route::put('/{id}', [penjualan_detailController::class, 'update']);
-    Route::delete('/{id}', [penjualan_detailController::class, 'destroy']);
 });
 
 Route::group(['prefix' => 'supplier/'], function() {
