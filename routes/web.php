@@ -7,6 +7,7 @@ use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\StokController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +20,17 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::pattern('id', '[0-9]+'); //ketika ada parameter {id}, maka harus berupa angka
+
+Route::get('login', [AuthController::class, 'Login'])->name('login');
+Route::post('login', [AuthController::class, 'postlogin']);
+Route::get('logout', [AuthController::class, 'logout'])->middleware('auth');
+
+Route::middleware(['auth'])->group(function(){ //semua route didalam group ini harus login dulu
+
+    //masukkan semua route yang perlu diautentikasi
+});
 
 // Route::get('/', function() {
 //     return view('welcome');
