@@ -27,10 +27,26 @@ Route::get('login', [AuthController::class, 'Login'])->name('login');
 Route::post('login', [AuthController::class, 'postlogin']);
 Route::get('logout', [AuthController::class, 'logout'])->middleware('auth');
 
-Route::middleware(['auth'])->group(function(){ //semua route didalam group ini harus login dulu
-
-    //masukkan semua route yang perlu diautentikasi
+Route::middleware(['auth'])->group(function () { 
+    // Artinya semua route di dalam group ini harus login dulu
+    Route::get('/', [WelcomeController::class, 'index']);
+    
+    // Route untuk Level
+    Route::middleware(['authorize:ADM'])->group(function () {
+        // Artinya semua route di dalam group ini harus punya role ADM (Administrator)
+        Route::get('/level', [LevelController::class, 'index']);
+        Route::post('/level/list', [LevelController::class, 'list']); // untuk list JSON datatables
+        Route::get('/level/create', [LevelController::class, 'create']);
+        Route::post('/level', [LevelController::class, 'store']);
+        Route::get('/level/{id}/edit', [LevelController::class, 'edit']); // untuk tampilkan form edit
+        Route::put('/level/{id}', [LevelController::class, 'update']);
+        Route::delete('/level/{id}', [LevelController::class, 'destroy']); // untuk proses hapus data
+    });
 });
+
+    // untuk proses update data
+    
+    // route Kategori
 
 // Route::get('/', function() {
 //     return view('welcome');
