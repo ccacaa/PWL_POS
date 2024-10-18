@@ -22,7 +22,7 @@
         <div class="card-header text-center"><a href="{{ url('/') }}" class="h1"><b>Admin</b>LTE</a></div>
             <div class="card-body">
                 <p class="login-box-msg">Sign up to create your account</p>
-                <form action="{{ url('signup') }}" method="POST" id="form-tambah">
+                <form action="{{ url('register') }}" method="POST" id="form-tambah">
                     @csrf
                     <div class="form-group">
                         <label>Level</label>
