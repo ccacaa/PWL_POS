@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 01, 2024 at 04:20 PM
+-- Generation Time: Oct 16, 2024 at 02:18 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -153,7 +153,7 @@ INSERT INTO `m_level` (`level_id`, `level_kode`, `level_nama`, `created_at`, `up
 (1, 'ADM', 'Administrator', NULL, NULL),
 (2, 'MNG', 'Manager', NULL, NULL),
 (3, 'STF', 'Staff/Kasir', NULL, NULL),
-(4, 'CST', 'customer', NULL, NULL);
+(4, 'CST', 'customer', NULL, '2024-10-15 09:09:15');
 
 -- --------------------------------------------------------
 
@@ -200,15 +200,15 @@ CREATE TABLE `m_user` (
 --
 
 INSERT INTO `m_user` (`user_id`, `level_id`, `username`, `nama`, `password`, `created_at`, `updated_at`) VALUES
-(1, 1, 'admin', 'admin1', '$2y$12$MW//H.vISLDMlXMbLgA23.MvR68zz3UVChuJRw.YabChBRR84VpbS', NULL, '2024-09-19 21:37:53'),
-(2, 2, 'manager', 'Manager', '$2y$12$SWi6CvIArzYRTquqF4sJG.gaGi3gwQ6IhIYLVKivhMlXcFyQvuCOS', NULL, NULL),
-(3, 3, 'staff', 'Staff/Kasir', '$2y$12$h1fv9zNS1LtxOEpM7KpiLuC6IQQRXveNf.ZQxwFEtYK4rzO8Umim2', NULL, NULL),
-(15, 4, 'customer-1', 'Pelanggan Pertama', '$2y$12$mOrXN2rnfhbiSjORK/La5.42dejn8z8PmwVWk4kdHYuj5fQS5D.7u', NULL, '2024-09-14 06:32:16'),
+(1, 1, 'admin', 'admin1', '$2y$12$vW6j0wo0ZwmOHxZeyJitee2mYytKG5iFYq85VGguKXCixJrXStqnS', NULL, '2024-10-15 09:17:57'),
+(2, 2, 'manager', 'Manager', '$2y$12$yc5Z.bDI9sOst2W7h2NsCuedwBA2Q5PQLAzpDvmfpP3RNuTwnWYv.', NULL, '2024-10-15 09:18:13'),
+(3, 3, 'staff', 'Staff/Kasir', '$2y$12$NzPF4KwompCWCDd2zVm8TOx4Br0d5N0DXtY4EFeuV7NVeoo07gjT.', NULL, '2024-10-15 09:20:07'),
 (16, 2, 'manager_dua', 'Manager 2', '$2y$12$yXPYbMOUjUepdg3H8Aq/uex9anXxV9iGcccKqUJm5oK482ubvh/Tu', '2024-09-17 18:45:26', '2024-09-17 18:45:26'),
 (17, 2, 'manager22', 'Manager Dua Dua', '$2y$12$lnG2WptbzmaNUfr5olmI6OSdo3CN4/djZHnvQQFTQZlL/tK1BhUWC', '2024-09-17 20:25:56', '2024-09-17 20:25:56'),
 (18, 2, 'manager33', 'Manager Tiga Tiga', '$2y$12$gMhdf2srIpqbo/31YaYUAOUW6B5BeYnXk8LHaFSaWP13vuA3QrWSe', '2024-09-17 20:34:21', '2024-09-17 20:34:21'),
 (20, 2, 'manager55', 'Manager55', '$2y$12$raNpfXDLmibXZYFYzOIcEeb7lGwUQ3Rc/xZMubSWqroQ9JwQ1oeUy', '2024-09-18 20:58:54', '2024-09-18 20:58:54'),
-(21, 2, 'manager12', 'Manager11', '$2y$12$.LJ.lK1BzOp3McnZn0X0TON.m9uBHB6uNl/JeKqePinPlVheXAAZ2', '2024-09-18 21:05:10', '2024-09-18 21:05:10');
+(21, 2, 'manager12', 'Manager11', '$2y$12$.LJ.lK1BzOp3McnZn0X0TON.m9uBHB6uNl/JeKqePinPlVheXAAZ2', '2024-09-18 21:05:10', '2024-09-18 21:05:10'),
+(28, 4, 'cacacust', 'caca', '$2y$12$H9fyld9ikGKe/L7FjUThxO3DGFuSdmDkKRsSRNcYy3Bk5b2wguurq', '2024-10-08 19:48:14', '2024-10-08 19:48:14');
 
 -- --------------------------------------------------------
 
@@ -524,7 +524,7 @@ ALTER TABLE `m_supplier`
 -- AUTO_INCREMENT for table `m_user`
 --
 ALTER TABLE `m_user`
-  MODIFY `user_id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `user_id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
