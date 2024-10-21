@@ -7,7 +7,9 @@ use App\Http\Controllers\LevelController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\StokController;
 use App\Http\Controllers\WelcomeController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -136,4 +138,24 @@ Route::middleware(['auth'])->group(function () {
         });
 
     });
+
+    
+
+    Route::group(['prefix' => 'stok'], function () {
+        Route::get('/', [StokController::class, 'index']);              // menampilkan halaman awal stok
+        Route::post('/list', [StokController::class, 'list']);          // menampilkan data stok dalam bentuk json untuk datatables
+        // Route::get('/create', [StokController::class, 'create']);       // menampilkan halaman form tambah stok
+        Route::get('/create_ajax', [StokController::class, 'create_ajax']); // Menampilkan halaman form tambah supplier Ajax
+        Route::post('/ajax', [StokController::class, 'store_ajax']); // Menyimpan data stok baru Ajax
+        // Route::post('/', [StokController::class, 'store']);             // menyimpan data stok baru
+        // Route::get('/{id}', [StokController::class, 'show']);           // menampilkan detail stok
+        // Route::get('/{id}/edit', [StokController::class, 'edit']);     // menampilkan halaman form edit stok
+        // Route::put('/{id}', [StokController::class, 'update']);         // menyiapkan perubahan data stok
+        Route::get('/{id}/edit_ajax', [StokController::class, 'edit_ajax']); // Menampilkan halaman form edit stok Ajax 
+        Route::put('/{id}/update_ajax', [StokController::class, 'update_ajax']); // Menyimpan perubahan data stok Ajax
+        Route::get('/{id}/delete_ajax', [StokController::class, 'confirm_ajax']); // Untuk tampilkan form confirm delete stok Ajax
+        Route::delete('/{id}/delete_ajax', [StokController::class, 'delete_ajax']); // Untuk hapus data stok Ajax
+        // Route::delete('/{id}', [StokController::class, 'destroy']);     // menghapus data stok
+    });
+
 });
